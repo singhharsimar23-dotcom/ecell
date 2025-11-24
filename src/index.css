@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 260 50% 8%;
+    --background-secondary: 265 45% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 265 40% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 265 40% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 80% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 85% 70%;
+
+    --secondary: 265 35% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 265 30% 18%;
+    --muted-foreground: 240 5% 65%;
+
+    --accent: 170 70% 50%;
+    --accent-foreground: 0 0% 100%;
+    --accent-glow: 170 75% 60%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 265 30% 25%;
+    --input: 265 35% 20%;
+    --ring: 270 80% 60%;
+
+    --radius: 1rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(270 80% 60%), hsl(170 70% 50%));
+    --gradient-bg: linear-gradient(180deg, hsl(260 50% 8%), hsl(270 45% 12%));
+    --gradient-glass: linear-gradient(135deg, hsla(270 80% 60% / 0.1), hsla(170 70% 50% / 0.1));
+    
+    --shadow-glow: 0 0 60px hsla(270 80% 60% / 0.3);
+    --shadow-accent-glow: 0 0 40px hsla(170 70% 50% / 0.3);
+    
+    --sidebar-background: 265 45% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 270 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 265 35% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 265 30% 20%;
+    --sidebar-ring: 270 80% 60%;
+  }
+
+  .dark {
+    --background: 260 50% 8%;
+    --foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Plus_Jakarta_Sans'];
+    background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--background-secondary)));
+    min-height: 100vh;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/20;
+  }
+  
+  .glass-button {
+    @apply bg-gradient-to-r from-primary/90 to-accent/90 backdrop-blur-sm;
+    box-shadow: 0 8px 32px hsla(var(--primary) / 0.3);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-button:hover {
+    box-shadow: 0 12px 40px hsla(var(--primary) / 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent;
+  }
+}
